@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Inversión $ Beneficios – Líneas Fotocopias (v4 FULL PRO)</title>
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f1b30; --panel2:#0c172b; --txt:#e8eefc; --muted:#9fb2d8;
+      --line:#22355a; --accent:#f5c542; --good:#2dd4bf; --warn:#fbbf24; --bad:#fb7185;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:var(--sans); background: radial-gradient(1200px 800px at 20% 10%, #13264a 0%, var(--bg) 40%); color:var(--txt)}
+    .wrap{max-width:1280px; margin:24px auto; padding:0 16px}
+    .topbar{display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:46px; height:46px; border-radius:14px; background:#000; display:grid; place-items:center; box-shadow: var(--shadow); border:1px solid #111; font-weight:900; letter-spacing:.5px;}
+    .logo span{color:#fff; font-size:14px}
+    .logo em{color:#ffd400; font-style:normal}
+    .title h1{font-size:16px; margin:0}
+    .title p{margin:2px 0 0; color:var(--muted); font-size:12px}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    button, .btn{
+      background:linear-gradient(180deg,#152a55,#0e1f40);
+      border:1px solid var(--line);
+      color:var(--txt);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(0,0,0,.25);
+      font-weight:600;
+      font-size:12px;
+    }
+    button:hover{filter:brightness(1.06)}
+    .btn-accent{border-color:#5b4a14; background:linear-gradient(180deg,#2b2410,#15131a)}
+    .btn-accent strong{color:var(--accent)}
+    input, select{
+      background:#0a1730;
+      border:1px solid var(--line);
+      color:var(--txt);
+      padding:10px 10px;
+      border-radius:12px;
+      outline:none;
+      font-size:12px;
+    }
+    .grid{display:grid; gap:14px}
+    .cards{grid-template-columns:1.25fr .75fr}
+    @media (max-width: 980px){ .cards{grid-template-columns:1fr} }
+    .card{background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;}
+    .card-h{display:flex; align-items:center; justify-content:space-between; padding:14px; border-bottom:1px solid var(--line); gap:10px; flex-wrap:wrap;}
+    .card-h h2{font-size:13px; margin:0}
+    .card-b{padding:14px}
+    .note{font-size:12px; color:var(--muted); line-height:1.35}
+    .table-wrap{overflow:auto; border:1px solid var(--line); border-radius:14px}
+    table{width:100%; border-collapse:collapse; min-width:1140px}
+    th, td{padding:10px; border-bottom:1px solid rgba(34,53,90,.55); font-size:12px; text-align:left; vertical-align:middle}
+    th{position:sticky; top:0; background:#0a1730; z-index:2; font-size:11px; color:#cfe0ff}
+    tr:hover td{background:rgba(10,23,48,.35)}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; font-size:11px; font-weight:800; border:1px solid var(--line); background:rgba(20,37,68,.6)}
+    .g{color:var(--good); border-color:rgba(45,212,191,.35)}
+    .y{color:var(--warn); border-color:rgba(251,191,36,.35)}
+    .r{color:var(--bad); border-color:rgba(251,113,133,.35)}
+    .mut{color:var(--muted)}
+    .kpi{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+    @media (max-width: 980px){ .kpi{grid-template-columns:repeat(2,1fr)} }
+    .kpi .box{border:1px solid var(--line); border-radius:14px; padding:10px 12px; background:#0a1730;}
+    .box .lbl{color:var(--muted); font-size:11px}
+    .box .val{font-size:16px; font-weight:800; margin-top:6px; font-family:var(--mono)}
+    .xbtn{width:34px; height:34px; border-radius:12px; padding:0; display:grid; place-items:center}
+    .mini{font-size:11px; padding:6px 10px; border-radius:10px}
+    .row-actions{display:flex; gap:8px; align-items:center}
+    .hr{height:1px; background:rgba(34,53,90,.55); margin:12px 0}
+    .toast{position:fixed; right:14px; bottom:14px; background:#071327; border:1px solid var(--line); color:var(--txt);
+      padding:10px 12px; border-radius:14px; box-shadow:var(--shadow); display:none; max-width:360px; font-size:12px}
+    .blink{animation:blink 1s steps(2,start) infinite}
+    @keyframes blink{to{visibility:hidden}}
+    .tag{font-family:var(--mono); color:#cfe0ff}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo" title="Líneas Fotocopias"><span>lí<em>n</em>eas</span></div>
+      <div class="title">
+        <h1>Inversión $ Beneficios – Líneas Fotocopias <span class="mut">(v4 FULL PRO – Portafolio + API multi-fuente)</span></h1>
+        <p id="nowLine">—</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="btnRefresh">Actualizar cotizaciones</button>
+      <button id="btnExport" class="btn-accent"><strong>Exportar</strong> JSON</button>
+      <label class="btn" for="fileImport" style="display:inline-flex;align-items:center;gap:8px">
+        Importar JSON
+        <input id="fileImport" type="file" accept="application/json" style="display:none"/>
+      </label>
+      <button id="btnReset">Reset (demo)</button>
+    </div>
+  </div>
+
+  <div class="grid cards">
+    <div class="card">
+      <div class="card-h">
+        <div>
+          <h2>Radar (carga manual + scoring)</h2>
+          <div class="note">PRO: cotizaciones via <span class="tag">/api/quotes</span> (evita CORS). Señal: 🟢 ≥ 60 | 🟡 45–59 | 🔴 &lt; 45.</div>
+        </div>
+        <div class="row-actions">
+          <button id="btnAddRadar" class="mini">Agregar</button>
+        </div>
+      </div>
+      <div class="card-b">
+        <div class="table-wrap">
+          <table id="radarTable">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Nombre / Ticker</th>
+                <th>Horizonte</th>
+                <th>CAGR %</th>
+                <th>DD Max %</th>
+                <th>Sharpe</th>
+                <th>Sortino</th>
+                <th>Liquidez</th>
+                <th>Transparencia</th>
+                <th>Fuente</th>
+                <th>PPI Type</th>
+                <th>PPI Settle</th>
+                <th>Último</th>
+                <th>Score</th>
+                <th>Señal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="hr"></div>
+        <div class="note">
+          Fuentes soportadas: <span class="tag">Binance</span>, <span class="tag">Stooq</span>, <span class="tag">Yahoo</span>, <span class="tag">PPI</span> (requiere credenciales), <span class="tag">DolarAPI</span> (FX).
+          Ejemplos: Crypto <span class="tag">BTCUSDT</span> (Binance). US <span class="tag">AAPL</span> o <span class="tag">SUPV</span> (Yahoo/Stooq).
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <div>
+          <h2>Portafolio (operaciones)</h2>
+          <small class="mut">Cargás monto + fecha + entrada + stop/take. La app calcula P&amp;L y alerta.</small>
+        </div>
+        <div class="row-actions">
+          <button id="btnAddOp" class="mini">Nueva operación</button>
+        </div>
+      </div>
+      <div class="card-b">
+        <div class="kpi">
+          <div class="box"><div class="lbl">Capital invertido</div><div class="val" id="kpiInvested">$0</div></div>
+          <div class="box"><div class="lbl">Valor actual</div><div class="val" id="kpiValue">$0</div></div>
+          <div class="box"><div class="lbl">P&amp;L</div><div class="val" id="kpiPnL">$0</div></div>
+          <div class="box"><div class="lbl">P&amp;L %</div><div class="val" id="kpiPnLPct">0.0%</div></div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="table-wrap">
+          <table id="pfTable">
+            <thead>
+              <tr>
+                <th>Activo</th>
+                <th>Tipo</th>
+                <th>Fecha compra</th>
+                <th>Monto ($)</th>
+                <th>Precio entrada</th>
+                <th>Stop</th>
+                <th>Take</th>
+                <th>Fuente</th>
+                <th>PPI Type</th>
+                <th>PPI Settle</th>
+                <th>Precio actual</th>
+                <th>Resultado $</th>
+                <th>Resultado %</th>
+                <th>Estado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="hr"></div>
+        <div class="note">Reglas: sin apalancamiento, cash defensivo, no tocar capital operativo.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <div class="card-h">
+      <div>
+        <h2>Alertas tipo semáforo</h2>
+        <small class="mut">Radar + Portafolio. Si hay STOP, manda el STOP.</small>
+      </div>
+      <div class="row-actions">
+        <span id="apiStatus" class="pill mut">API: —</span>
+      </div>
+    </div>
+    <div class="card-b">
+      <div id="alerts" class="note">—</div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const STORAGE_KEY = "lf_inv_beneficios_v3_pro";
+function uid(){ return Math.random().toString(16).slice(2)+Date.now().toString(16); }
+
+const defaultState = () => ({
+  radar: [
+    {id: uid(), tipo:"Acciones", ticker:"SUPV", horizonte:"largo", cagr:16, dd:14, sharpe:0.85, sortino:1.10, liquidez:"alta", transparencia:"media", fuente:"Yahoo", ppiType:"", ppiSettle:"INMEDIATA", last:null, lastTs:null},
+    {id: uid(), tipo:"Crypto", ticker:"BTCUSDT", horizonte:"largo", cagr:25, dd:55, sharpe:0.55, sortino:0.70, liquidez:"alta", transparencia:"alta", fuente:"Binance", ppiType:"", ppiSettle:"INMEDIATA", last:null, lastTs:null},
+  ],
+  portfolio: []
+});
+let state = loadState();
+
+function money(n){
+  if(!isFinite(n)) return "$0";
+  return n.toLocaleString("es-AR",{style:"currency",currency:"ARS",maximumFractionDigits:0});
+}
+function pct(n, d=1){
+  if(!isFinite(n)) return "0.0%";
+  return (n).toLocaleString("es-AR",{minimumFractionDigits:d, maximumFractionDigits:d})+"%";
+}
+function toast(msg){
+  const el = document.getElementById("toast");
+  el.textContent = msg;
+  el.style.display="block";
+  clearTimeout(window.__t);
+  window.__t = setTimeout(()=> el.style.display="none", 2800);
+}
+function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return defaultState();
+    const parsed = JSON.parse(raw);
+    if(!parsed.radar || !parsed.portfolio) return defaultState();
+    return parsed;
+  }catch(e){ return defaultState(); }
+}
+function setNow(){
+  const now = new Date();
+  const f = now.toLocaleString("es-AR",{weekday:"long", year:"numeric", month:"long", day:"numeric", hour:"2-digit", minute:"2-digit"});
+  document.getElementById("nowLine").textContent = "🗓️ " + f;
+}
+setNow(); setInterval(setNow, 30000);
+
+function clamp(x,a,b){ return Math.max(a, Math.min(b,x)); }
+function scoreRow(r){
+  const c = clamp((Number(r.cagr)||0)/40*100, 0, 100);
+  const d = 100 - clamp((Number(r.dd)||0)/60*100, 0, 100);
+  const so = clamp((Number(r.sortino)||0)/2*100, 0, 100);
+  const sh = clamp((Number(r.sharpe)||0)/1.5*100, 0, 100);
+  return clamp(0.4*c + 0.3*d + 0.2*so + 0.1*sh, 0, 100);
+}
+function signalFromScore(s){
+  if(s>=60) return {txt:"VERDE", cls:"g"};
+  if(s>=45) return {txt:"AMARILLO", cls:"y"};
+  return {txt:"ROJO", cls:"r"};
+}
+
+function esc(s){ return String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;"); }
+function v(x){ return (x===null || x===undefined) ? "" : x; }
+
+// PRO: una sola puerta de salida (serverless) para evitar CORS
+async function apiQuotes(requests){
+  const res = await fetch("/api/quotes", {
+    method:"POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({requests})
+  });
+  if(!res.ok){
+    const t = await res.text();
+    throw new Error("API error: " + t);
+  }
+  return await res.json(); // {ok:true, results:[{key, price, ts, error}]}
+}
+
+async function updateQuotes(){
+  const status = document.getElementById("apiStatus");
+  status.textContent = "API: actualizando…";
+  status.className = "pill y";
+  const ts = new Date().toISOString();
+
+  // Armar requests unificados (radar + portfolio)
+  const req = [];
+  const pushReq = (source, symbol, key, extra={}) => req.push({source, symbol, key, ...extra});
+  for(const r of state.radar){
+    if(r.fuente==="Manual") continue;
+    pushReq(r.fuente, String(r.ticker).trim(), "radar:"+r.id, {ppiType:r.ppiType||"", ppiSettle:r.ppiSettle||"INMEDIATA"});
+  }
+  for(const p of state.portfolio){
+    if(p.fuente==="Manual") continue;
+    pushReq(p.fuente, String(p.activo).trim(), "pf:"+p.id, {ppiType:p.ppiType||"", ppiSettle:p.ppiSettle||"INMEDIATA"});
+  }
+  if(req.length===0){
+    status.textContent = "API: sin requests";
+    status.className = "pill mut";
+    toast("No hay activos con Fuente API (Binance/Stooq/Yahoo).");
+    return;
+  }
+
+  let ok=0, fail=0;
+  try{
+    const j = await apiQuotes(req);
+    const byKey = new Map((j.results||[]).map(x=>[x.key,x]));
+    for(const r of state.radar){
+      const k = "radar:"+r.id;
+      if(!byKey.has(k)) continue;
+      const it = byKey.get(k);
+      if(it.error){ fail++; continue; }
+      r.last = it.price; r.lastTs = it.ts || ts; ok++;
+    }
+    for(const p of state.portfolio){
+      const k = "pf:"+p.id;
+      if(!byKey.has(k)) continue;
+      const it = byKey.get(k);
+      if(it.error){ fail++; continue; }
+      p.actual = it.price; p.actualTs = it.ts || ts; ok++;
+    }
+    saveState(); renderAll();
+    status.textContent = `API: ok ${ok} | fallas ${fail}`;
+    status.className = fail>0 ? "pill y" : "pill g";
+    toast(`Cotizaciones: ok ${ok} | fallas ${fail}`);
+  }catch(e){
+    status.textContent = "API: error";
+    status.className = "pill r";
+    toast(e.message);
+  }
+}
+
+function renderRadar(){
+  const tb = document.querySelector("#radarTable tbody");
+  tb.innerHTML = "";
+  state.radar.forEach(r=>{
+    const s = scoreRow(r);
+    const sig = signalFromScore(s);
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>
+        <select data-k="tipo" data-id="${r.id}">
+          ${["Acciones","Bonos/Títulos","CEDEARs","Crypto"].map(x=>`<option ${r.tipo===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </td>
+      <td><input data-k="ticker" data-id="${r.id}" value="${esc(r.ticker)}" placeholder="Ticker"/></td>
+      <td>
+        <select data-k="horizonte" data-id="${r.id}">
+          ${["corto","medio","largo"].map(x=>`<option value="${x}" ${r.horizonte===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </td>
+      <td><input type="number" step="0.1" data-k="cagr" data-id="${r.id}" value="${v(r.cagr)}"/></td>
+      <td><input type="number" step="0.1" data-k="dd" data-id="${r.id}" value="${v(r.dd)}"/></td>
+      <td><input type="number" step="0.01" data-k="sharpe" data-id="${r.id}" value="${v(r.sharpe)}"/></td>
+      <td><input type="number" step="0.01" data-k="sortino" data-id="${r.id}" value="${v(r.sortino)}"/></td>
+      <td>
+        <select data-k="liquidez" data-id="${r.id}">
+          ${["alta","media","baja"].map(x=>`<option value="${x}" ${r.liquidez===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </td>
+      <td>
+        <select data-k="transparencia" data-id="${r.id}">
+          ${["alta","media","baja"].map(x=>`<option value="${x}" ${r.transparencia===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </td>
+      <td>
+        <select data-k="fuente" data-id="${r.id}">
+          ${["Manual","Binance","Stooq","Yahoo","PPI","DolarAPI"].map(x=>`<option value="${x}" ${r.fuente===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </td>
+      <td><input data-k="ppiType" data-id="${r.id}" value="${esc(r.ppiType||"")}" placeholder="ej: ACCIONES"/></td>
+      <td><input data-k="ppiSettle" data-id="${r.id}" value="${esc(r.ppiSettle||"INMEDIATA")}" placeholder="INMEDIATA"/></td>
+      <td class="tag">${r.last===null? "—" : r.last}</td>
+      <td class="tag">${s.toFixed(1)}</td>
+      <td><span class="pill ${sig.cls}">${sig.txt}</span></td>
+      <td class="row-actions">
+        <button class="mini btn-accent" data-act="toPortfolio" data-id="${r.id}">Invertir</button>
+        <button class="xbtn" data-act="delRadar" data-id="${r.id}">×</button>
+      </td>
+    `;
+    tb.appendChild(tr);
+  });
+
+  tb.querySelectorAll("input,select").forEach(el=>{
+    el.addEventListener("input", onRadarEdit);
+    el.addEventListener("change", onRadarEdit);
+  });
+  tb.querySelectorAll("button[data-act]").forEach(btn=>{
+    btn.addEventListener("click", onRadarAction);
+  });
+}
+function onRadarEdit(ev){
+  const id = ev.target.getAttribute("data-id");
+  const k = ev.target.getAttribute("data-k");
+  const r = state.radar.find(x=>x.id===id);
+  if(!r) return;
+  let val = ev.target.value;
+  if(["cagr","dd","sharpe","sortino"].includes(k)) val = val===""? "" : Number(val);
+  r[k] = val;
+  saveState(); renderAll();
+}
+function onRadarAction(ev){
+  const act = ev.target.getAttribute("data-act");
+  const id = ev.target.getAttribute("data-id");
+  if(act==="delRadar"){
+    state.radar = state.radar.filter(x=>x.id!==id);
+    saveState(); renderAll(); return;
+  }
+  if(act==="toPortfolio"){
+    const r = state.radar.find(x=>x.id===id);
+    if(!r) return;
+    const today = new Date().toISOString().slice(0,10);
+    state.portfolio.unshift({
+      id: uid(),
+      activo: r.ticker,
+      tipo: r.tipo,
+      fecha: today,
+      monto: 0,
+      entrada: 0,
+      stop: 0,
+      take: 0,
+      fuente: r.fuente,
+      ppiType: r.ppiType||"",
+      ppiSettle: r.ppiSettle||"INMEDIATA",
+      actual: r.last ?? null,
+      actualTs: r.lastTs ?? null
+    });
+    saveState(); renderAll();
+    toast("Operación creada. Cargá monto y precio de entrada.");
+  }
+}
+document.getElementById("btnAddRadar").addEventListener("click", ()=>{
+  state.radar.unshift({id: uid(), tipo:"Acciones", ticker:"Nuevo", horizonte:"medio", cagr:0, dd:0, sharpe:0, sortino:0, liquidez:"media", transparencia:"media", fuente:"Yahoo", ppiType:"", ppiSettle:"INMEDIATA", last:null, lastTs:null});
+  saveState(); renderAll();
+});
+
+function renderPortfolio(){
+  const tb = document.querySelector("#pfTable tbody");
+  tb.innerHTML = "";
+
+  state.portfolio.forEach(p=>{
+    const actual = (p.actual===null || p.actual===undefined || p.actual==="") ? Number(p.entrada||0) : Number(p.actual);
+    const monto = Number(p.monto||0);
+    const entrada = Number(p.entrada||0);
+
+    const units = (entrada>0) ? (monto/entrada) : 0;
+    const valueNow = units * actual;
+    const pnl = valueNow - monto;
+    const pnlPct = (monto>0) ? (pnl/monto*100) : 0;
+
+    const stop = Number(p.stop||0);
+    const take = Number(p.take||0);
+    let st = {txt:"AMARILLO", cls:"y"};
+    if(monto<=0 || entrada<=0) st = {txt:"CARGAR", cls:"y"};
+    else if(stop>0 && actual<=stop) st = {txt:"ROJO", cls:"r"};
+    else if(take>0 && actual>=take) st = {txt:"VERDE", cls:"g"};
+    else if(pnlPct>=8) st = {txt:"VERDE", cls:"g"};
+    else if(pnlPct<=-6) st = {txt:"ROJO", cls:"r"};
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><input data-pk="activo" data-id="${p.id}" value="${esc(p.activo)}"/></td>
+      <td>
+        <select data-pk="tipo" data-id="${p.id}">
+          ${["Acciones","Bonos/Títulos","CEDEARs","Crypto"].map(x=>`<option ${p.tipo===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </td>
+      <td><input type="date" data-pk="fecha" data-id="${p.id}" value="${esc(p.fecha||"")}"/></td>
+      <td><input type="number" step="1" data-pk="monto" data-id="${p.id}" value="${v(p.monto)}" placeholder="ARS"/></td>
+      <td><input type="number" step="0.0001" data-pk="entrada" data-id="${p.id}" value="${v(p.entrada)}"/></td>
+      <td><input type="number" step="0.0001" data-pk="stop" data-id="${p.id}" value="${v(p.stop)}"/></td>
+      <td><input type="number" step="0.0001" data-pk="take" data-id="${p.id}" value="${v(p.take)}"/></td>
+      <td>
+        <select data-pk="fuente" data-id="${p.id}">
+          ${["Manual","Binance","Stooq","Yahoo","PPI","DolarAPI"].map(x=>`<option value="${x}" ${p.fuente===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+      </td>
+      <td><input data-pk="ppiType" data-id="${p.id}" value="${esc(p.ppiType||"")}" placeholder="ej: ACCIONES"/></td>
+      <td><input data-pk="ppiSettle" data-id="${p.id}" value="${esc(p.ppiSettle||"INMEDIATA")}" placeholder="INMEDIATA"/></td>
+      <td><input type="number" step="0.0001" data-pk="actual" data-id="${p.id}" value="${v(p.actual)}" placeholder="Auto si Fuente API"/></td>
+      <td class="tag">${isFinite(pnl)? money(pnl): "$0"}</td>
+      <td class="tag">${isFinite(pnlPct)? pct(pnlPct,1): "0.0%"}</td>
+      <td><span class="pill ${st.cls} ${st.txt==='ROJO' ? 'blink':''}">${st.txt}</span></td>
+      <td class="row-actions">
+        <button class="xbtn" data-pact="delOp" data-id="${p.id}">×</button>
+      </td>
+    `;
+    tb.appendChild(tr);
+  });
+
+  tb.querySelectorAll("input,select").forEach(el=>{
+    el.addEventListener("input", onPfEdit);
+    el.addEventListener("change", onPfEdit);
+  });
+  tb.querySelectorAll("button[data-pact]").forEach(btn=>{
+    btn.addEventListener("click", onPfAction);
+  });
+
+  computeKpis();
+}
+function onPfEdit(ev){
+  const id = ev.target.getAttribute("data-id");
+  const k = ev.target.getAttribute("data-pk");
+  const p = state.portfolio.find(x=>x.id===id);
+  if(!p) return;
+  let val = ev.target.value;
+  if(["monto","entrada","stop","take","actual"].includes(k)) val = val===""? "" : Number(val);
+  p[k] = val;
+  saveState(); renderAll();
+}
+function onPfAction(ev){
+  const act = ev.target.getAttribute("data-pact");
+  const id = ev.target.getAttribute("data-id");
+  if(act==="delOp"){
+    state.portfolio = state.portfolio.filter(x=>x.id!==id);
+    saveState(); renderAll();
+  }
+}
+document.getElementById("btnAddOp").addEventListener("click", ()=>{
+  const today = new Date().toISOString().slice(0,10);
+  state.portfolio.unshift({id:uid(), activo:"Nuevo", tipo:"Acciones", fecha:today, monto:0, entrada:0, stop:0, take:0, fuente:"Yahoo", actual:null, actualTs:null});
+  saveState(); renderAll();
+});
+
+function computeKpis(){
+  let invested=0, value=0;
+  for(const p of state.portfolio){
+    const monto = Number(p.monto||0);
+    const entrada = Number(p.entrada||0);
+    const actual = (p.actual===null || p.actual===undefined || p.actual==="") ? Number(p.entrada||0) : Number(p.actual);
+    const units = (entrada>0) ? (monto/entrada) : 0;
+    invested += monto;
+    value += units*actual;
+  }
+  const pnl = value - invested;
+  const pnlPct = invested>0 ? pnl/invested*100 : 0;
+  document.getElementById("kpiInvested").textContent = money(invested);
+  document.getElementById("kpiValue").textContent = money(value);
+  document.getElementById("kpiPnL").textContent = money(pnl);
+  document.getElementById("kpiPnLPct").textContent = pct(pnlPct,1);
+}
+
+function renderAlerts(){
+  const el = document.getElementById("alerts");
+  const items = [];
+  const radarScored = state.radar.map(r=>{
+    const s = scoreRow(r);
+    const sig = signalFromScore(s);
+    return {...r, _score:s, _sig:sig};
+  }).sort((a,b)=>b._score-a._score);
+
+  for(const r of radarScored.slice(0,5)){
+    const accion = r._sig.txt==="VERDE" ? "Entrar con size controlado + stop" : (r._sig.txt==="AMARILLO" ? "Monitorear / esperar confirmación" : "No entrar");
+    items.push(`<div class="hr"></div><div><span class="pill ${r._sig.cls}">${r._sig.txt}</span> <b>${esc(r.ticker)}</b> <span class="mut">(${esc(r.tipo)} | ${esc(r.fuente)})</span><br><span class="mut">Score ${r._score.toFixed(1)} | CAGR ${r.cagr}% | DD ${r.dd}%</span><br><b>Acción:</b> ${accion}</div>`);
+  }
+
+  for(const p of state.portfolio){
+    const monto = Number(p.monto||0);
+    const entrada = Number(p.entrada||0);
+    const actual = (p.actual===null || p.actual===undefined || p.actual==="") ? Number(p.entrada||0) : Number(p.actual);
+    if(monto<=0 || entrada<=0) continue;
+    const pnlPct = ((actual-entrada)/entrada)*100;
+    const stop = Number(p.stop||0);
+    const take = Number(p.take||0);
+    if(stop>0 && actual<=stop){
+      items.push(`<div class="hr"></div><div><span class="pill r blink">ROJO</span> <b>${esc(p.activo)}</b> bajo STOP (${stop}). <b>Acción:</b> Salir / reducir.</div>`);
+    } else if(take>0 && actual>=take){
+      items.push(`<div class="hr"></div><div><span class="pill g">VERDE</span> <b>${esc(p.activo)}</b> tocó TAKE (${take}). <b>Acción:</b> Tomar ganancias / subir stop.</div>`);
+    } else if(pnlPct<=-6){
+      items.push(`<div class="hr"></div><div><span class="pill r">ROJO</span> <b>${esc(p.activo)}</b> caída ${pct(pnlPct,1)}. <b>Acción:</b> Revisar o cortar.</div>`);
+    } else if(pnlPct>=8){
+      items.push(`<div class="hr"></div><div><span class="pill g">VERDE</span> <b>${esc(p.activo)}</b> suba ${pct(pnlPct,1)}. <b>Acción:</b> Proteger ganancia.</div>`);
+    }
+  }
+
+  el.innerHTML = items.length ? items.join("") : "Sin alertas todavía. Cargá operaciones y/o actualizá cotizaciones.";
+}
+
+function exportJSON(){
+  const blob = new Blob([JSON.stringify(state,null,2)], {type:"application/json"});
+  const a = document.createElement("a");
+  const d = new Date().toISOString().slice(0,10);
+  a.href = URL.createObjectURL(blob);
+  a.download = `LF_InversionBeneficios_${d}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast("Exportado.");
+}
+async function importJSON(file){
+  const txt = await file.text();
+  const j = JSON.parse(txt);
+  if(!j.radar || !j.portfolio) throw new Error("JSON inválido (falta radar/portfolio).");
+  state = j;
+  saveState(); renderAll();
+  toast("Importado OK.");
+}
+
+document.getElementById("btnExport").addEventListener("click", exportJSON);
+document.getElementById("fileImport").addEventListener("change", async (e)=>{
+  const f = e.target.files?.[0];
+  if(!f) return;
+  try{ await importJSON(f); }
+  catch(err){ toast("Error importando: " + err.message); }
+  e.target.value = "";
+});
+document.getElementById("btnReset").addEventListener("click", ()=>{
+  state = defaultState();
+  saveState(); renderAll();
+  toast("Reset demo OK.");
+});
+document.getElementById("btnRefresh").addEventListener("click", updateQuotes);
+
+function renderAll(){
+  renderRadar();
+  renderPortfolio();
+  renderAlerts();
+}
+renderAll();
+</script>
+</body>
+</html>
